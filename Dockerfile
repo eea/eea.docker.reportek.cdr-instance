@@ -1,6 +1,8 @@
 FROM eeacms/zope:latest
 MAINTAINER "Olimpiu Rob" <olimpiu.rob@eaudeweb.ro>
 
+ENV EVENT_LOG_LEVEL INFO
+ENV Z2_LOG_LEVEL INFO
 ENV ZEO_CLIENT true
 ENV ZEO_ADDRESS zeoserver:8100
 ENV LOCAL_CONVERTERS_HOST converter
