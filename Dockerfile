@@ -1,4 +1,3 @@
-#FROM olimpiurob/eea.docker.reportek.zope-instance:latest
 FROM eeacms/zope:latest
 MAINTAINER "Olimpiu Rob" <olimpiu.rob@eaudeweb.ro>
 
