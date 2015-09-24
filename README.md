@@ -2,9 +2,6 @@
 
 Docker image for Zope with CDR specific Add-ons and settings available.
 
-This image is generic, thus you can obviously re-use it within
-your non-related EEA projects.
-
 ### Supported tags and respective Dockerfile links
 
   - `:latest` (default)
@@ -25,7 +22,7 @@ your non-related EEA projects.
 
 ## Usage
 
-See [eeacms/plone-instance](https://registry.hub.docker.com/u/eeacms/zope)
+See [eeacms/zope](https://registry.hub.docker.com/u/eeacms/zope)
 
 ## Upgrade
 
