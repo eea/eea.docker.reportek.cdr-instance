@@ -14,6 +14,7 @@ ENV REPORTEK_DEPLOYMENT CDR
 
 COPY src/versions.cfg           $ZOPE_HOME/
 COPY src/sources.cfg            $ZOPE_HOME/
+COPY src/cdr-instance.cfg       $ZOPE_HOME/
 COPY src/base.cfg               $ZOPE_HOME/
 
 RUN ./install.sh
