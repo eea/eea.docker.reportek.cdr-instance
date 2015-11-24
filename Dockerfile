@@ -1,4 +1,4 @@
-FROM eeacms/zope:latest
+FROM eeacms/zope:2.13.22
 MAINTAINER "Olimpiu Rob" <olimpiu.rob@eaudeweb.ro>
 
 ENV EVENT_LOG_LEVEL INFO
