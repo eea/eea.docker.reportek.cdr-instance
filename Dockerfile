@@ -17,4 +17,6 @@ COPY src/sources.cfg            $ZOPE_HOME/
 COPY src/cdr-instance.cfg       $ZOPE_HOME/
 COPY src/base.cfg               $ZOPE_HOME/
 
-RUN ./install.sh
+USER root
+RUN ./install.sh && chown -R 500:500 $ZOPE_HOME
+USER zope-www
