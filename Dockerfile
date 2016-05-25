@@ -9,7 +9,7 @@ ENV LOCAL_CONVERTERS_HOST converter
 ENV DATADICTIONARY_SCHEMAS_URL http://dd.eionet.europa.eu/api/schemas/forObligation
 ENV UNS_NOTIFICATIONS on
 ENV REDIS_DATABASE 1
-ENV REDIS_HOSTNAME redis_deploy
+ENV REDIS_HOSTNAME redisdeploy
 ENV REPORTEK_DEPLOYMENT CDR
 
 COPY src/versions.cfg           $ZOPE_HOME/
