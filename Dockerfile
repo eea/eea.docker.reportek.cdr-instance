@@ -10,3 +10,7 @@ ENV DATADICTIONARY_SCHEMAS_URL=http://dd.eionet.europa.eu/api/schemas/forObligat
 COPY src/sources.cfg            $ZOPE_HOME/
 COPY src/cdr-instance.cfg       $ZOPE_HOME/
 COPY src/base.cfg               $ZOPE_HOME/
+
+USER root
+RUN ./install.sh
+USER zope-www
