@@ -89,13 +89,13 @@ def generate_newrelic_ini():
 
         Example:
         To set browser_monitoring.auto_instrument = false we will set
-        NEW_RELIC-browser_monitoring_auto_instrument = false
+        NEW_RELIC-BROWSER_MONITORING_AUTO_INSTRUMENT = false
     """
     with io.FileIO(NEW_RELIC_INI_FILE, "w") as file:
         file.write("[newrelic]\n")
 
         for key in NEW_RELIC_SETTINGS:
-            env_var_name = NEW_RELIC_ENV_VARS_PREFIX + key
+            env_var_name = NEW_RELIC_ENV_VARS_PREFIX + key.upper()
             file.write(
                 NEW_RELIC_SETTINGS[key]['name'] +
                 " = " +
