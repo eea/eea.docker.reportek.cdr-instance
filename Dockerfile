@@ -5,7 +5,7 @@ ENV DATADICTIONARY_SCHEMAS_URL=http://dd.eionet.europa.eu/api/schemas/forObligat
     UNS_NOTIFICATIONS=on \
     REDIS_DATABASE=1 \
     REDIS_HOSTNAME=redisdeploy \
-    REPORTEK_DEPLOYMENT=CDR \
+    REPORTEK_DEPLOYMENT=CDR
 
 COPY src/docker-setup.sh    /docker-setup.sh
 COPY src/configure-additional.py    /configure-additional.py
