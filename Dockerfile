@@ -7,7 +7,6 @@ ENV DATADICTIONARY_SCHEMAS_URL=http://dd.eionet.europa.eu/api/schemas/forObligat
     REDIS_HOSTNAME=redisdeploy \
     REPORTEK_DEPLOYMENT=CDR
 
-COPY src/zope-setup.sh              /
 COPY src/sources.cfg                \
      src/cdr-instance.cfg           \
      src/base.cfg                   $ZOPE_HOME/
