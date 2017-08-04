@@ -27,7 +27,7 @@ RUN curl "http://download.osgeo.org/geos/geos-3.3.8.tar.bz2" -o "/var/local/geos
     cd /var/local && tar -zxvf proj-4.8.0.tar.gz && rm proj-4.8.0.tar.gz && cd proj-4.8.0 && \
     ./configure && make && make install clean && cd /var/local && rm -rf proj-4.8.0 && \
 
-    curl "http://www.gaia-gis.it/gaia-sins/freexl-1.0.2.tar.gz" -o "/var/local/freexl-1.0.2.tar.gz" && \
+    curl "http://www.gaia-gis.it/gaia-sins/freexl-1.0.3.tar.gz" -o "/var/local/freexl-1.0.2.tar.gz" && \
     cd /var/local && tar -zxvf freexl-1.0.2.tar.gz && rm freexl-1.0.2.tar.gz && cd freexl-1.0.2 && \
     ./configure && make && make install clean && cd /var/local && rm -rf freexl-1.0.2 && \
 
