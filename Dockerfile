@@ -10,6 +10,7 @@ ENV DATADICTIONARY_SCHEMAS_URL=http://dd.eionet.europa.eu/api/schemas/forObligat
 
 COPY src/sources.cfg                \
      src/cdr-instance.cfg           \
+     src/tests.cfg                  \
      src/base.cfg                   $ZOPE_HOME/
 COPY src/docker-initialize.py       /
 
