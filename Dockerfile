@@ -1,4 +1,4 @@
-FROM eeacms/reportek-base-dr:2.47-47
+FROM eeacms/reportek-base-dr:2.47-48
 MAINTAINER "Olimpiu Rob" <olimpiu.rob@eaudeweb.ro>
 
 ENV DATADICTIONARY_SCHEMAS_URL=http://dd.eionet.europa.eu/api/schemas/forObligation \
