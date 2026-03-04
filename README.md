@@ -1,32 +1,31 @@
-# Zope w/ CDR Add-ons ready to run Docker image
+# Zope 5 w/ CDR Add-ons ready to run Docker image
 
-Docker image for Zope with CDR specific Add-ons and settings available.
+Downstream, application-specific Docker Hardened Image (DHI) for the Reportek CDR environment.
 
-### Supported tags and respective Dockerfile links
+## Architecture Context
 
-  - `:latest` (default)
+This image natively subclasses [eeacms/reportek-base-dr:z5](https://hub.docker.com/r/eeacms/reportek-base-dr) leveraging the pre-compiled Zope 5 infrastructure to cleanly enforce specific application-layer topologies:
+1. **ZCML Overlays:** Injects a custom `site.zcml` mapping `<include package="Products.Reportek" file="views.cdr.zcml" />` explicitly targeting CDR views.
+2. **Environment Globals:** Enforces metadata variables specifically tuned to the CDR footprint.
 
-### Base docker image
+## Environment Variables
 
- - [hub.docker.com](https://registry.hub.docker.com/u/eeacms/reportek-cdr)
+Aside from the standard Zope Waitress runtime variables handled by the Base image (`ZEO_ADDRESS`, `ZOPE_THREADS`, etc.), this CDR overlay explicitly overrides the following globals by default inside the `Dockerfile`:
 
-### Source code
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `REPORTEK_DEPLOYMENT` | `CDR` | Context marker identifying the environment |
+| `DATADICTIONARY_SCHEMAS_URL` | `http://dd.eionet.europa.eu/api/schemas/forObligation` | Target URL for EIONET DD validation |
+| `UNS_NOTIFICATIONS` | `on` | Explicitly enables Unified Notification System hooks |
 
-  - [github.com](http://github.com/eea/eea.docker.reportek.cdr-instance)
+## Execution
 
-### Installation
+Because this image identically inherits the `docker-entrypoint.sh` definitions from the Base image, standard commands gracefully resolve downward:
 
-1. Install [Docker](https://www.docker.com/)
-
-2. Install [Docker Compose](https://docs.docker.com/compose/) (optional)
-
-## Usage
-
-See [eeacms/zope](https://registry.hub.docker.com/u/eeacms/zope)
-
-## Upgrade
-
-    $ docker pull eeacms/reportek-cdr
+```bash
+# Start Waitress natively mapped to the CDR overlays
+docker run -p 8080:8080 eeacms/reportek-cdr:z5 start
+```
 
 ## Copyright and license
 

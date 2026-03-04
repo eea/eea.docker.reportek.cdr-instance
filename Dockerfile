@@ -1,18 +1,17 @@
-FROM eeacms/reportek-base-dr:2.47-130
-MAINTAINER "Olimpiu Rob" <olimpiu.rob@eaudeweb.ro>
+# syntax=docker/dockerfile:1
+# Docker Hardened Images (DHI) for Zope / Reportek CDR
+
+FROM eeacms/reportek-base-dr:z5
+
+USER root
+
+# Inject CDR Specific Zope Configuration Map
+COPY src/site.zcml /opt/zope/etc/site.zcml
 
 ENV DATADICTIONARY_SCHEMAS_URL=http://dd.eionet.europa.eu/api/schemas/forObligation \
     UNS_NOTIFICATIONS=on \
-    REDIS_HOSTNAME=redisdeploy \
-    SESSION_MANAGER_TIMEOUT=120 \
     REPORTEK_DEPLOYMENT=CDR
 
-COPY src/sources.cfg                \
-     src/cdr-instance.cfg           \
-     src/tests.cfg                  \
-     src/base.cfg                   $ZOPE_HOME/
-COPY src/docker-initialize.py       /
+RUN chown ${ZOPE_UID}:${ZOPE_GID} /opt/zope/etc/site.zcml
 
-USER root
-RUN ./install.sh
 USER zope-www
