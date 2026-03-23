@@ -26,6 +26,7 @@ pipeline {
     stage('Release on tag creation') {
       when {
         buildingTag()
+        not { expression { BUILD_TAG.toLowerCase().contains('z5') } }
       }
       steps{
         node(label: 'docker') {
