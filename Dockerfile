@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 # Docker Hardened Images (DHI) for Zope / Reportek CDR
 
-FROM eeacms/reportek-base-dr:z5-1.17
+FROM eeacms/reportek-base-dr:z5-1.18
 
 USER root
 
