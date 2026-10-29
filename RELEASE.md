@@ -39,7 +39,7 @@ Tag creation should be restricted to the Jenkins user and the admins (GitHub rul
   docker push eeacms/reportek-cdr:latest
   ```
   Then fix forward with a new release. The helm chart `cdr-py3` keeps the `appVersion` of the bad release until a newer one is released, change it by hand if needed.
-- **Trivy fails the build:** it lists the fixable CRITICAL vulnerabilities, update the package. A finding that is
+- **Trivy fails the build:** it lists the fixable HIGH and CRITICAL vulnerabilities, update the package (the ones without a fix upstream are ignored). A finding that is
   accepted (false positive, not reachable) can be listed in a `.trivyignore` file in the root of the repository, with
   a comment saying why. If Trivy cannot run (vulnerability database download), the build is marked unstable and
   continues.
