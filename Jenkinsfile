@@ -113,7 +113,7 @@ pipeline {
         expression { (env.TAG_NAME ?: '') ==~ env.TAG_PATTERN }
       }
       steps {
-        withCredentials([usernamePassword(credentialsId: 'jekinsdockerhub', usernameVariable: 'DOCKERHUB_USER', passwordVariable: 'DOCKERHUB_PASS')]) {
+        withCredentials([usernamePassword(credentialsId: 'jekinsdockerhub', usernameVariable: 'DOCKERHUB_USER', passwordVariable: 'DOCKERHUB_PASS')]) { //betterleaks:allow
           script {
             try {
               sh '''
